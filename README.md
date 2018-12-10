@@ -9,6 +9,14 @@ You can access the API directly on heroku:
 
 https://djangowordcounter.herokuapp.com/v1/
 
+**Here's some requests exemples to use:**
+
+**Counting 1 word:**
+https://djangowordcounter.herokuapp.com/v1/counter?word=python&url=https://en.wikipedia.org/wiki/Monty_Python
+
+**Counting 2 words:**
+https://djangowordcounter.herokuapp.com/v1/counter?word=python&url1=https://en.wikipedia.org/wiki/Monty_Python&url2=https://en.wikipedia.org/wiki/Monty_Python_and_the_Holy_Grail
+
 Prerequisites
 
 This API was made using Python 3.7.0, Django, Django REST Framework, Beaultiful Soup, Requests and the good old RegEX.
@@ -37,4 +45,4 @@ Authors
 
 Acknowledgments
 
-    If someone can do somethng, so do you.
+    If someone can do something, so do you.
