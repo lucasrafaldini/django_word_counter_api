@@ -11,10 +11,10 @@ https://djangowordcounter.herokuapp.com/v1/
 
 **Here's some requests exemples to use:**
 
-**Counting 1 word:**
+**Counting 1 word from 1 url:**
 https://djangowordcounter.herokuapp.com/v1/counter?word=python&url=https://en.wikipedia.org/wiki/Monty_Python
 
-**Counting 2 words:**
+**Counting 1 word from 2 urls:**
 https://djangowordcounter.herokuapp.com/v1/counter?word=python&url1=https://en.wikipedia.org/wiki/Monty_Python&url2=https://en.wikipedia.org/wiki/Monty_Python_and_the_Holy_Grail
 
 Prerequisites
