@@ -1,1 +1,2 @@
-web: gunicorn django_word_counter_api.wsgi
+web: python manage.py runserver
+web: gunicorn django_word_counter_api.wsgi --log-file
