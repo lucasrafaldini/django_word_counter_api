@@ -1,0 +1,159 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Word Counter API",
+    "description" : "An API that counts occurrences of a word in a page.",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://djangowordcounter.herokuapp.com/v1/"
+  } ],
+  "paths" : {
+    "/" : {
+      "get" : {
+        "summary" : "Returns rendered instructions page.",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/counter?word={word}&url={url}" : {
+      "get" : {
+        "summary" : "Returns occurrence of word in one or both urls provided.",
+        "parameters" : [ {
+          "name" : "word",
+          "in" : "path",
+          "description" : "The word to search for occurrences.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "url",
+          "in" : "path",
+          "description" : "The link to search for occurrences.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "The specified word is invalid (e.g. not a word)"
+          },
+          "404" : {
+            "description" : "A page with the specified url was not found"
+          }
+        }
+      }
+    },
+    "/counter?word={word}&url1={url1}&url2={url2}" : {
+      "get" : {
+        "summary" : "Returns occurrence of word in one or both urls provided.",
+        "parameters" : [ {
+          "name" : "word",
+          "in" : "path",
+          "description" : "The word to search for occurrences.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "url1",
+          "in" : "path",
+          "description" : "The first link to search for occurrences.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "url2",
+          "in" : "path",
+          "description" : "The second link to search for occurrences.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/inline_response_200_1"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "The specified word is invalid (e.g. not a word)"
+          },
+          "404" : {
+            "description" : "A page with the specified url was not found"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "inline_response_200_1" : {
+        "type" : "object",
+        "properties" : {
+          "word" : {
+            "type" : "string"
+          },
+          "url1" : {
+            "type" : "string"
+          },
+          "occurrences1" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "url2" : {
+            "type" : "string"
+          },
+          "occurrences2" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "inline_response_200" : {
+        "type" : "object",
+        "properties" : {
+          "word" : {
+            "type" : "string"
+          },
+          "ocurrence" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      }
+    }
+  }
+}
