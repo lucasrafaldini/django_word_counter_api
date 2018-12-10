@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_heroku',
     'api',
 ]
 
@@ -116,4 +117,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+#django-heroku settings
+
+import django_heroku
+
+django_heroku.settings(locals())
+
+#static files settings
 STATIC_URL = '/static/'
+#location to store static files (bootstrap)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+#location where django collect all static files
+
+STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
