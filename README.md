@@ -5,6 +5,10 @@ If you want to know how many times a word is written on a page, just use this AP
 
 Getting Started
 
+**See the Swagger documentation here**
+
+https://app.swaggerhub.com/apis-docs/lucasrafaldini/Word-Counter-API/1.0.0
+
 You can access the API directly on heroku:
 
 https://djangowordcounter.herokuapp.com/v1/
