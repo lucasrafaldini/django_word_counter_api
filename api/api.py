@@ -17,6 +17,7 @@ class CountView(APIView):
             serializer = CountSerializer2(data={"word": word, "url1": url1, "url2":url2})
             if cache.get(word+url1+url2):
                 cache_url = cache.get(word+url1+url2)
+		cache_url = cache_url
                 return Response({word: cache_url}, status=status.HTTP_200_OK)
             else:
                 if not serializer.is_valid():
@@ -42,6 +43,7 @@ class CountView(APIView):
             serializer = CountSerializer(data={"word": word, "url": url})
             if cache.get(word+url):
                 cache_url = cache.get(word+url)
+		cache_url = cache_url
                 return Response({word: cache_url}, status=status.HTTP_200_OK)
             else:
                 if not serializer.is_valid():
@@ -53,7 +55,7 @@ class CountView(APIView):
                     headers = {'Accept-Encoding': 'identity'}
                     response = requests.get(url, headers=headers)
                 except:
-                    return Response({"url": ["Page unavailable"]}, status=status.HTTP_400_BAD_REQUEST)
+                    return Response({"url": "Page unavailable"}, status=status.HTTP_400_BAD_REQUEST)
 
                 occurrence = processing.counter1(self, word=word, text=response.text)
 
