@@ -35,7 +35,7 @@ Feel free to contribute.
 The API still needs some adjustments that will be made soon. 
 Here's a list of what it requires to be better:
 
-`Tests` 
+~~Tests~~ 
 
 `A new index page with the documentation (figure out how to use 'restframework-swagger' properly`
 

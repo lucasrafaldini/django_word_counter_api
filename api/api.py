@@ -32,7 +32,7 @@ class CountView(APIView):
 
                 occurrences = processing.counter2(self, word=word, text1=response1.text, text2=response2.text)
 
-               #definindo low-level cache com timeout de meia hora
+                # low-level cache with a half-hour timeout
                 cache.set((word+url1+url2),{url1: occurrences[0], url2: occurrences[1]},timeout=1800)
                 return Response({word: {url1: occurrences[0], url2: occurrences[1]}}, status=status.HTTP_200_OK)
 
@@ -57,6 +57,6 @@ class CountView(APIView):
 
                 occurrence = processing.counter1(self, word=word, text=response.text)
 
-                # definindo low-level cache com timeout de meia hora
+                # low-level cache with a half-hour timeout
                 cache.set(str(word+url), {occurrence}, timeout=1800)
                 return Response({word: occurrence}, status=status.HTTP_200_OK)
